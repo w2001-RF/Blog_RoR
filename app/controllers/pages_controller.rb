@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def aide
   end
+
+  def contact
+  end
 end
