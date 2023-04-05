@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'utilisateurs/new'
   root 'pages#home'
-  get 'aide'=> 'pages#aide'
-  get 'contact' => 'pages#contact'
+  get 'aide'        => 'pages#aide'
+  get 'contact'     => 'pages#contact'
+  get 'inscription' => 'utilisateurs#new'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
