@@ -37,3 +37,9 @@ footer ul li{
     float: left;
     margin-left: 15px; /*espaces entre les mots*/
 }
+
+.jumbotron {
+    background-image: asset-url('image01.avif');
+    background-size: cover;
+    height: 350px;
+}
