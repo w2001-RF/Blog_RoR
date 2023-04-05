@@ -11,7 +11,7 @@ class UtilisateurTest < ActiveSupport::TestCase
   end
 
   test "nom foit etre present" do
-    @Utilisateur.nom = ""
+    @utilisateur.nom = ""
     assert_not @utilisateur.valid?
   end
 
