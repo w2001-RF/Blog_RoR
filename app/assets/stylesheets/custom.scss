@@ -12,3 +12,28 @@
     color: grey;
     text-decoration: none;
 }
+
+footer {
+    margin-top: 50px;  /*espaces après le contenu*/
+    border-top: 1px solid #eaeaea;
+    padding-top: 5px; /*espaces après le border*/
+    color: #777;
+}
+
+footer a:hover{
+    color: #222;
+}
+
+footer small {
+    float: left;
+}
+
+footer ul {
+    float: right;
+    list-style: none;
+}
+
+footer ul li{
+    float: left;
+    margin-left: 15px; /*espaces entre les mots*/
+}
