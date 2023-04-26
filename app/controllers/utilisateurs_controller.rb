@@ -1,4 +1,11 @@
 class UtilisateursController < ApplicationController
+  before_action :authenticate, :only => [:index, :edit, :update]
+  before_action :bon_utilisateur, :only => [:edit, :update]
+
+  def index
+    @utilisateurs = Utilisateur.all
+  end
+
   def new
     @utilisateur = Utilisateur.new
   end
@@ -18,7 +25,37 @@ class UtilisateursController < ApplicationController
     end
   end
 
-  def utilisateur_params
-    params.require(:utilisateur).permit(:nom, :email, :password, :password_confirmation)
+  def edit
+    @utilisateur = Utilisateur.find(params[:id])
   end
+
+  def update
+    @utilisateur = Utilisateur.find(params[:id])
+    if @utilisateur.update(utilisateur_params)
+      flash[:success] = "Profile Actualisé!"
+      redirect_to @utilisateur
+    else
+      render 'edit'
+    end
+  end
+
+
+  private
+    def utilisateur_params
+      params.require(:utilisateur).permit(:nom, :email, :password, :password_confirmation)
+    end
+
+    def authenticate
+      unless logged_in?
+        flash[:danger] = "Merci de se connecter."
+    	redirect_to login_url
+      end
+
+
+      def bon_utilisateur
+        @utilisateur = Utilisateur.find(params[:id])
+        redirect_to(root_url) unless @utilisateur == @utilisateur_courant
+      end
+    end
+
 end
