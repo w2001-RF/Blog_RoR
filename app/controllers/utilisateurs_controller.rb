@@ -1,7 +1,6 @@
 class UtilisateursController < ApplicationController
-  before_action :authenticate, :only => [:index, :edit, :update]
+  before_action :authenticate, :only => [:index, :edit, :update, :destroy]
   before_action :bon_utilisateur, :only => [:edit, :update]
-
   def index
     @utilisateurs = Utilisateur.all
   end
@@ -37,6 +36,12 @@ class UtilisateursController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    Utilisateur.find(params[:id]).destroy
+	flash[:success] = "Utilisateur supprimé"
+	redirect_to root_url
   end
 
 
