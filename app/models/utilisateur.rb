@@ -4,5 +4,7 @@ class Utilisateur < ApplicationRecord
 
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL}
+  validates :password, presence :, length: {mimimum: 6}
   has_secure_password
+
 end
