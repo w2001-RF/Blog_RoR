@@ -11,7 +11,8 @@ class UtilisateursController < ApplicationController
     puts :utilisateur
     @utilisateur = Utilisateur.new(utilisateur_params)
     if @utilisateur.save
-
+      flash[:success] = "Bienvenue!"
+        redirect_to @utilisateur
     else
       render 'new'
     end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   root 'pages#home'
   get 'aide'        => 'pages#aide'
   get 'contact'     => 'pages#contact'
